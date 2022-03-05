@@ -1,0 +1,74 @@
+apiVersion: unfurl/v1alpha1
+kind: Ensemble
+spec:
+  service_template:
+    topology_template:
+      node_templates:
+        test_remote:
+          type: tosca:Root
+          interfaces:
+            Standard:
+              configure:
+                implementation: Ansible
+                inputs:
+                  playbook:
+                    # quote this yaml so its templates are not evaluated before we pass it to Ansible
+                    q:
+                    - set_fact:
+                        fact1: "{{ '.name' | eval }}"
+                    - name: Hello
+                      debug:
+                        msg: Hello world msg
+                outputs:
+                  fact1:
+lock:
+  runtime:
+    unfurl:
+      version: 0.3.2
+      digest: ''
+  repositories:
+  - url: file:/Users/faizan/.unfurl_home/.venv/lib/python3.9/site-packages/unfurl
+    revision: ''
+    initial: ''
+    name: unfurl
+  - url: file:/Users/faizan/unfurl-projects/unfurl_hello1
+    revision: ''
+    initial: ''
+    name: self
+  - url: file:///Users/faizan/unfurl-projects/unfurl_hello1/
+    revision: 1b8d5b7ef525273026e311904855af768e019610-dirty
+    initial: 2ad1bac9c03349ff53316c1a37113d6d00273b5e
+  - url: file:///Users/faizan/unfurl-projects/unfurl_hello1/
+    revision: 1b8d5b7ef525273026e311904855af768e019610-dirty
+    initial: 2ad1bac9c03349ff53316c1a37113d6d00273b5e
+  ensembles:
+    localhost:
+      uri: git-local://201380932e4c793b0eaff06648b50ed8cf8ead7e:/ensemble.yaml
+      changeId:
+      digest: 4a2788c544b0495cd20d0476d07fb6a401646c91
+      manifest:
+        file: ensemble/ensemble.yaml
+status:
+  inputs: {}
+  outputs: {}
+  instances:
+    test_remote:
+      template: test_remote
+      priority: required
+      readyState:
+        local: ok
+        state: configured
+      lastConfigChange: A2358dgQ0001
+      created: A2358dgQ0001
+lastJob:
+  changeId: A2358dgQ0000
+  startTime: 2022-03-05-08-39-42-436797
+  workflow: deploy
+  options: {}
+  summary: 1 tasks (1 changed, 1 ok, 0 failed, 0 unknown, 0 skipped)
+  specDigest: a3e82a6b5c64c51d7541cf98a11b45b6a0fc2f13
+  priority: required
+  readyState:
+    local: ok
+  changelog: jobs/job2022-03-05-08-39-42-436797.yaml
+jobsLog: jobs.tsv
