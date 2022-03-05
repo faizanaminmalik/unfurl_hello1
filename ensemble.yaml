@@ -18,7 +18,7 @@ spec:
                         fact1: "{{ '.name' | eval }}"
                     - name: Hello
                       debug:
-                        msg: Hello world msg
+                        msg: Hello world msg for you
                 outputs:
                   fact1:
 lock:
@@ -31,15 +31,15 @@ lock:
     revision: ''
     initial: ''
     name: unfurl
-  - url: file:/Users/faizan/unfurl-projects/unfurl_hello1
-    revision: ''
-    initial: ''
-    name: self
-  - url: file:///Users/faizan/unfurl-projects/unfurl_hello1/
-    revision: 1b8d5b7ef525273026e311904855af768e019610-dirty
+  - url: https://github.com/faizanaminmalik/unfurl_hello1.git#:.
+    revision: b18dd42fb270bb89fbaf76426a1fb788f590b4d3-dirty
     initial: 2ad1bac9c03349ff53316c1a37113d6d00273b5e
-  - url: file:///Users/faizan/unfurl-projects/unfurl_hello1/
-    revision: 1b8d5b7ef525273026e311904855af768e019610-dirty
+    name: self
+  - url: https://github.com/faizanaminmalik/unfurl_hello1.git
+    revision: b18dd42fb270bb89fbaf76426a1fb788f590b4d3-dirty
+    initial: 2ad1bac9c03349ff53316c1a37113d6d00273b5e
+  - url: https://github.com/faizanaminmalik/unfurl_hello1.git
+    revision: b18dd42fb270bb89fbaf76426a1fb788f590b4d3-dirty
     initial: 2ad1bac9c03349ff53316c1a37113d6d00273b5e
   ensembles:
     localhost:
@@ -58,17 +58,18 @@ status:
       readyState:
         local: ok
         state: configured
-      lastConfigChange: A2358dgQ0001
-      created: A2358dgQ0001
+      lastConfigChange: A2358hVW0001
+      created: A2358hVW0001
 lastJob:
-  changeId: A2358dgQ0000
-  startTime: 2022-03-05-08-39-42-436797
+  changeId: A2358hVW0000
+  startTime: 2022-03-05-08-43-31-521371
   workflow: deploy
   options: {}
   summary: 1 tasks (1 changed, 1 ok, 0 failed, 0 unknown, 0 skipped)
-  specDigest: a3e82a6b5c64c51d7541cf98a11b45b6a0fc2f13
+  startCommit: b18dd42fb270bb89fbaf76426a1fb788f590b4d3
+  specDigest: d1ec92da0385872dc0428fffa202b77f52286e5c
   priority: required
   readyState:
     local: ok
-  changelog: jobs/job2022-03-05-08-39-42-436797.yaml
+  changelog: jobs/job2022-03-05-08-43-31-521371.yaml
 jobsLog: jobs.tsv
